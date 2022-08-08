@@ -1,9 +1,11 @@
 package polymorphism;
 
+import lombok.Data;
 
+@Data
 public class SamsungTV implements TV{
    
-    private SonySpeaker speaker;
+	private Speaker speaker;
     private int price;
    
    public SamsungTV() {
@@ -17,7 +19,8 @@ public class SamsungTV implements TV{
       this.speaker = speaker;
    }
    
-   public SamsungTV(SonySpeaker speaker, int price) {
+   
+   public SamsungTV(Speaker speaker, int price) {
 	      super();
 	      System.out.println("--->SamsunTv(3) 객체생성");
 	      this.speaker = speaker;

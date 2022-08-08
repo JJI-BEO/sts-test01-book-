@@ -15,6 +15,4 @@ public class AppleSpeaker implements Speaker {
 	public void volumeDown() {
 		System.out.println("Apple ===> 소리다운");
 	}
-
-	
 }

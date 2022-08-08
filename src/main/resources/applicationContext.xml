@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean id="samsungTV" class="polymorphism.SamsungTV" ><!-- scope="prototype" -->
-		<constructor-arg ref="sony"></constructor-arg>
+		<constructor-arg ref="apple"></constructor-arg>
 		<constructor-arg value="270000"></constructor-arg>
 	</bean> 
 	<bean id="lgTV" class="polymorphism.LgTV">
@@ -12,6 +12,10 @@
 	</bean>
 	
 	<bean id="sony" class="polymorphism.SonySpeaker">
+	
+	</bean>
+	
+	<bean id="apple" class="polymorphism.AppleSpeaker">
 	
 	</bean>
 	
