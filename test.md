@@ -38,7 +38,7 @@
 		</jsp-property-group>
 	</jsp-config>
 
-  	```
+```
 2. 톰캣 서버 연동
 3. pom.xml 버전 체크
   * 자바버전 1.8
@@ -60,3 +60,29 @@
    * 멤버변수 인젝션
 * AOP(공통관심사 OR 횡단관심사)
 * SPRING 컨테이너
+
+## 어노테이션 설정하기
+사용법
+* @어노테이션명()
+* 빈 등록 어노테이션
+* @Component("tv")
+
+의존성주입 어노테이션
+* @AutoWired
+* 데이터 타입을 자동으로 찾아감
+* @Qualifier
+
+>직접 개발한 클래스는 어노테이션을 사용할수 있고, XML설정을 할 수도 있다.
+하지만 라이브러리 형태로 제공되는 클래스는 반드시 XML설정을 통해서 사용해야한다.
+
+* @Component
+* @Service
+* @Repository
+* @Controller
+
+
+Presentaion(화면계층) - 화면에 보여주는 기술을 사용하는 영역 
+Business(비지니스계층) - 고객이 원하는 요구사항을 반영하는 계층
+> VO, DAO, Service, Servicelmpl
+
+Persistence(영속계층 / 데이터 계층) - 데이터를 어떤 방식으로 보관하고 사용하는가에 대한 설계가 들어가는 계층

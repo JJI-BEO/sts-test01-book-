@@ -14,17 +14,15 @@ public class SamsungTV implements TV{
       System.out.println("===> SamsungTV 객체생성");
    }
    public SamsungTV(SonySpeaker speaker) {
-      super();
       System.out.println("---> SamsunTv(2) 객체생성");
-      this.speaker = speaker;
+//      this.speaker = speaker;
    }
-   
    
    public SamsungTV(Speaker speaker, int price) {
 	      super();
 	      System.out.println("--->SamsunTv(3) 객체생성");
-	      this.speaker = speaker;
-	      this.price = price;
+//	      this.speaker = speaker;
+//	      this.price = price;
 	   }
    
    public void powerOn() {
@@ -34,11 +32,11 @@ public class SamsungTV implements TV{
       System.out.println("SamsungTv---전원끈다.");
    }
    public void volumeUp() {
-      speaker = new SonySpeaker();
+//      speaker = new SonySpeaker();
       speaker.volumeUp();
    }
    public void volumeDown() {
-      speaker = new SonySpeaker();
+//      speaker = new SonySpeaker();
       speaker.volumeDown();
    }
 }
