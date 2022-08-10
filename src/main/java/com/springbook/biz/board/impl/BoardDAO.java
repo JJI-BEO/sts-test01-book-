@@ -29,7 +29,6 @@ public class BoardDAO {
 		System.out.println("===> board cnt");
 		
 		try {
-			System.out.println(vo);
 			conn = JDBCUtil.GetConnection();
 			pstmt = conn.prepareStatement(BOARD_CNT);
 			pstmt.setInt(1, vo.getSeq());
@@ -100,6 +99,8 @@ public class BoardDAO {
 	
 	public BoardVO getBoard(BoardVO vo) {
 		BoardVO board = null;
+		// 조회시 카운터 증가
+		boardCnt(vo);
 		System.out.println("===> 한명조회()");
 
 		try {
