@@ -2,7 +2,8 @@
 
 ## 목차
 
-- [용어](#용어)
+- # 목차
+	- [용어](#용어)
 	- [수행 순서](#수행-순서)
 	- [결합도](#결합도)
 	- [빈](#빈)
@@ -11,7 +12,8 @@
 	- [롬복](#lobok)
 	- [계층](#계층)
 	- [DB세팅](#데이터베이스-연결)
-	- [참고 자료](#참고-자료)
+	- [의존주입 참고 자료](#참고-자료)
+	- [AOP 참고 사이트](#참고-사이트)
 	
 ## 용어
 
@@ -23,11 +25,6 @@
  3. AOP(공통관심사 OR 횡단관심사) Aspect Oriented Programming
 	- 사용하는쪽의 형식이 반드시 메소드여야만 한다.
 	- 공통관심사는 메소드 형식에만 적용가능하다.
-	- 조인 포인트 : 포인트컷이 될수 있는 대상
-	- 포인트컷 : 실제로 조인 포인트컷 중에서 공통관심사를 적용받는 대상
-	- 어드바이스 : 공통관심사에 해당되는 기능
-	- 애스팩스 or 어드바이저: 포인트컷+ 어드바이스
-	- 위빙 : Aspect가 지정된 객체를 새로운 프록시 객체를 생성하는 과정
  4. BEAN(강낭콩) 스프링에서 객체를 빈이라 부름
 
 ## 수행 순서
@@ -423,6 +420,7 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 		</aop:aspect>
 	</aop:config>
 ```
+
 >@Before
  메소드 실행 전 기능 수행.
 @After
@@ -434,5 +432,7 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 @Around
 메소드가 실행되기 전과 후 기능 구행. proceed() 메소드 호출 전, 후를 통해 구분할 수 있다.
 ---
+
 ### 참고 사이트
 * [Spring AOP weaving, proxy](https://tram-devlog.tistory.com/entry/Spring-AOP-weaving-proxy)
+---
