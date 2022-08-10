@@ -30,7 +30,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
-		
+		boardDAO.boardCnt(vo);
 		return boardDAO.getBoard(vo);
 	}
 

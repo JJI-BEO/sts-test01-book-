@@ -23,6 +23,24 @@ public class BoardDAO {
 	private final String BOARD_GET = "select * from board where seq=?";
 	private final String BOARD_LIST = "select * from board order by seq desc";
 	private final String BOARD_DELETE = "delete from board where seq=?";
+	private final String BOARD_CNT = "update board set cnt = cnt+1 where seq=?";
+	
+	public void boardCnt(BoardVO vo) {
+		System.out.println("===> board cnt");
+		
+		try {
+			System.out.println(vo);
+			conn = JDBCUtil.GetConnection();
+			pstmt = conn.prepareStatement(BOARD_CNT);
+			pstmt.setInt(1, vo.getSeq());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		
+	}
 
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> board insert ");
@@ -81,22 +99,24 @@ public class BoardDAO {
 	
 	
 	public BoardVO getBoard(BoardVO vo) {
-
+		BoardVO board = null;
 		System.out.println("===> 한명조회()");
 
 		try {
 			conn = JDBCUtil.GetConnection();
-			pstmt = conn.prepareStatement(BOARD_LIST);
+			pstmt = conn.prepareStatement(BOARD_GET);
+			pstmt.setInt(1, vo.getSeq());
 			rs = pstmt.executeQuery();
 
-			while (rs.next()) {
-
-				vo.setSeq(rs.getInt("seq"));
-				vo.setTitle(rs.getString("title"));
-				vo.setWriter(rs.getString("Writer"));
-				vo.setContent(rs.getString("content"));
-				vo.setRegDate(rs.getDate("regdate"));
-				vo.setCnt(rs.getInt("cnt"));
+			 if (rs.next()) {
+				board = new BoardVO();
+				board.setSeq(rs.getInt("seq"));
+				board.setTitle(rs.getString("title"));
+				board.setWriter(rs.getString("Writer"));
+				board.setContent(rs.getString("content"));
+				board.setRegDate(rs.getDate("regdate"));
+				board.setCnt(rs.getInt("cnt"));
+				System.out.println(board);
 			}
 
 		} catch (Exception e) {
@@ -105,7 +125,7 @@ public class BoardDAO {
 			JDBCUtil.close(pstmt, conn);
 		}
 
-		return vo;
+		return board;
 	}
 
 	public List<BoardVO> getBoardList() {
