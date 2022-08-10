@@ -9,10 +9,11 @@
 	- [빈](#빈)
 	- [의존 주입](#의존-주입)
 	- [어노테이션](#Annotation)
+	- [롬복](#lobok)
 	- [계층](#계층)
 	- [DB세팅](#데이터베이스-연결)
 	- [참고 자료](#참고-자료)
-
+	
 ## 용어
 
  1. IOC(제어의 역전) Inversion of Control
@@ -21,6 +22,8 @@
      * setter 인젝션
      * 멤버변수 인젝션 
  3. AOP(공통관심사 OR 횡단관심사) Aspect Oriented Programming
+	- 사용하는쪽의 형식이 반드시 메소드여야만 한다.
+	- 공통관심사는 메소드 형식에만 적용가능하다.
  4. BEAN(강낭콩) 스프링에서 객체를 빈이라 부름
 
 ## 수행 순서
@@ -265,6 +268,20 @@ for(String key : addressList.stringPropertyNames()) {
 > 하지만 **라이브러리 형태**로 제공되는 클래스는 반드시 XML설정을 통해서 사용해야 한다.(어노테이션 사용 불가)
 ----------
 
+### lobok
+>cmd 에서 java -jar 롬복파일 정상설치 안될시
+
+```
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.10</version>
+		    <scope>provided</scope>
+		</dependency>
+```
+
+
 ## 계층
 > **Persentation(화면계층)** - 화면에 보여주는 기술을 사용하는 영역
 > 
@@ -363,7 +380,6 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 }
 ```
 
-
 -----
 
 
@@ -371,3 +387,35 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 
 * [의존성 주입 관련](https://codevang.tistory.com/312)
 * [의존관계 쉽게 이해하기](https://tecoble.techcourse.co.kr/post/2021-04-27-dependency-injection/)
+
+
+### logAdvice
+>다운받는 사이트
+> - https://mvnrepository.com/
+> - aspectj
+
+```
+<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.8.8</version>
+    <scope>runtime</scope>
+</dependency>
+```
+##### log 빈 생성
+* 생성후 네임 스페이스에서 aop체크
+```
+<bean id="log" class="com.springbook.biz.common.LogAdvice"></bean>
+```
+* 
+```
+<aop:config>
+					//정규식 biz.하위에 있는 impl 클래스 모두 
+		<aop:pointcut expression="execution(* com.springbook.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:aspect ref="log">
+			//메소드가 시작하기전에 
+			<aop:before method="printLog()" pointcut-ref="allpoint"/>
+		</aop:aspect>
+	</aop:config>
+```

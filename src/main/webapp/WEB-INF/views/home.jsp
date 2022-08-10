@@ -5,10 +5,25 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+		<table>
+			<tr>
+			<td>아이디 :</td>
+			<td>${id }</td>
+			</tr>
+			<tr>
+			<td>비밀번호 :</td>
+			<td>${password }</td>
+			</tr>
+			<tr>
+			<td>이름 :</td>
+			<td> ${name }</td>
+			</tr>
+			<tr>
+			<td>레벨 :</td>
+			<td>${role }</td>
+			</tr>
+		</table>
+			
 </body>
 </html>

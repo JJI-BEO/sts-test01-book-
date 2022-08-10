@@ -16,24 +16,23 @@ public class BoardServiceClient {
 		// TODO Auto-generated method stub
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml"); // 싱글톤 패턴임
 		
-		BoardService boardService = (BoardService)container.getBean("bo"
-				+ "ardService");
+		BoardService boardService = (BoardService)container.getBean("boardService");
 		
 		BoardVO vo = new BoardVO();
 
 		//insert
-//		vo.setTitle("신규제목");
-//		vo.setWriter("고길동");
-//		vo.setContent("신규내용");
+		vo.setTitle("신규제목");
+		vo.setWriter("신규고길동");
+		vo.setContent("신규내용");
 //		vo.setSeq(1);
-//		boardService.insertBoard(vo);
+		boardService.insertBoard(vo);
 
 		//update
-		System.out.println("업데이트 전");
-		vo.setTitle("수정제목");
-		vo.setWriter("고길동");
-		vo.setContent("수정내용");
-		vo.setSeq(3);
+//		System.out.println("업데이트 전");
+//		vo.setTitle("수정제목");
+//		vo.setWriter("고길동");
+//		vo.setContent("수정내용");
+//		vo.setSeq(3);
 		
 		//------------입력값 받아서 수정
 //		int seq = 0;
@@ -52,14 +51,14 @@ public class BoardServiceClient {
 //		vo.setTitle(title);
 //		vo.setContent(content);
 		
-		boardService.updateBoard(vo);
-		System.out.println("업데이트됨?");
+//		boardService.updateBoard(vo);
+//		System.out.println("업데이트됨?");
 		
 		//전체조회
-//		List<BoardVO> list = boardService.getBoardList();
-//	      for(BoardVO list2 : list) {
-//	         System.out.println(list2.toString());
-//	      }
+		List<BoardVO> list = boardService.getBoardList();
+	      for(BoardVO list2 : list) {
+	         System.out.println(list2.toString());
+	      }
 	      
         //삭제
 //		vo.setSeq(1);
@@ -74,13 +73,13 @@ public class BoardServiceClient {
 	    //조회 + 카운트 
 //	    vo.setSeq(2);
 
-		int seq = 0;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("조회할 글 번호 입력: ");
-		seq = sc.nextInt();
-		vo.setSeq(seq);
-	    boardService.getBoard(vo);
-	    System.out.println("상세 조회  : " + vo.getSeq() + "번");
+//		int seq = 0;
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("조회할 글 번호 입력: ");
+//		seq = sc.nextInt();
+//		vo.setSeq(seq);
+//	    boardService.getBoard(vo);
+//	    System.out.println("상세 조회  : " + vo.getSeq() + "번");
 	    
 		container.close();
 	}
