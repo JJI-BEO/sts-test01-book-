@@ -2,8 +2,7 @@
 
 ## 목차
 
-- # 목차
-	- [용어](#용어)
+- [용어](#용어)
 	- [수행 순서](#수행-순서)
 	- [결합도](#결합도)
 	- [빈](#빈)
@@ -28,6 +27,7 @@
 	- 포인트컷 : 실제로 조인 포인트컷 중에서 공통관심사를 적용받는 대상
 	- 어드바이스 : 공통관심사에 해당되는 기능
 	- 애스팩스 or 어드바이저: 포인트컷+ 어드바이스
+	- 위빙 : Aspect가 지정된 객체를 새로운 프록시 객체를 생성하는 과정
  4. BEAN(강낭콩) 스프링에서 객체를 빈이라 부름
 
 ## 수행 순서
@@ -423,3 +423,16 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 		</aop:aspect>
 	</aop:config>
 ```
+>@Before
+ 메소드 실행 전 기능 수행.
+@After
+메소드 결과와 상관없이 메소드가 완료 된 이후에 기능 수행.
+@AfterReturning
+메소드가 성공적으로 완료 된 이후에 기능 수행.
+@AfterThrowing
+메소드 수행 중 예외 발생 시 이후에 기능 수행.
+@Around
+메소드가 실행되기 전과 후 기능 구행. proceed() 메소드 호출 전, 후를 통해 구분할 수 있다.
+---
+### 참고 사이트
+* [Spring AOP weaving, proxy](https://tram-devlog.tistory.com/entry/Spring-AOP-weaving-proxy)
