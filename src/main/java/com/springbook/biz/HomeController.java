@@ -25,11 +25,7 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 	
-	
-	
 	UserVO vo = new UserVO();
-	
-	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
