@@ -41,7 +41,7 @@ public class BoardDAO {
 		
 	}
 
-	public void insertBoard(BoardVO vo) {
+	public void insertBoard(BoardVO vo ) {
 		System.out.println("===> board insert ");
 
 		System.out.println(vo.getTitle() + "DAO");

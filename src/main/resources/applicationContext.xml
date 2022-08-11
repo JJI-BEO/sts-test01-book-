@@ -9,13 +9,43 @@
 	
 	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
 	
-	<bean id="log" class="com.springbook.biz.common.LogAdvice">
-	</bean>
+<!-- 	<bean id="log" class="com.springbook.biz.common.LogAdvice"> -->
+<!-- 	</bean> -->
 	
+<!-- 	<bean id="before" class="com.springbook.biz.common.beforeAdvice"></bean> -->
+	
+<!-- 	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"></bean>	 -->
+		
+<!-- 	<bean id="AfterThrowingAdvice" class="com.springbook.biz.common.afterThrowingAdvice"></bean> -->
+
+<!-- 	<bean id="AfterAdvice" class="com.springbook.biz.common.AfterAdvice"></bean> -->
+
+		<bean id="Aroud" class="com.springbook.biz.common.AroundAdvice"></bean>
+		
 	<aop:config>
-		<aop:pointcut expression="execution(* com.springbook.biz..*Impl.*(..))" id="allPointcut"/>
-		<aop:aspect ref="log">
-			<aop:before method="printLog()" pointcut-ref="allPointcut"/>
+<!-- 		<aop:pointcut expression="execution(* com.springbook.biz..*Impl.*(..))" id="allPointcut"/> -->
+		<aop:pointcut expression="execution(* com.springbook.biz..*Impl.get*(..))" id="getPointcut"/>
+			
+			
+			
+			<!-- 실행 이전에 -->
+<!-- 		<aop:aspect ref="AfterThrowingAdvice"> -->
+<!-- 			<aop:before method="before()" pointcut-ref="allPointcut"/> -->
+			
+			<!-- 리턴이 일어난 후에  -->
+<!-- 			<aop:after-returning method="afterLog()" pointcut-ref="getPointcut"/> -->
+			
+			<!-- 예외처리가 일어난 후에 -->
+<!-- 			<aop:after-throwing method="exceptionLog" pointcut-ref="allPointcut"/> -->
+<!-- 		</aop:aspect> -->
+			
+			<!-- 실행 이후에 -->
+<!-- 		<aop:aspect ref="AfterAdvice"> -->
+<!-- 			<aop:after method="finallyLog" pointcut-ref="allPointcut"/> -->
+<!-- 		</aop:aspect> -->
+
+		<aop:aspect ref="Aroud">
+			<aop:around method="aroundLog" pointcut-ref="getPointcut" />
 		</aop:aspect>
 	</aop:config>
 	

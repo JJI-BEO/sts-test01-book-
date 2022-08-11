@@ -21,11 +21,11 @@ public class BoardServiceClient {
 		BoardVO vo = new BoardVO();
 
 		//insert
-		vo.setTitle("신규제목");
-		vo.setWriter("신규고길동");
-		vo.setContent("신규내용");
+//		vo.setTitle("신규제목");
+//		vo.setWriter("신규고길동");
+//		vo.setContent("신규내용");
 //		vo.setSeq(1);
-		boardService.insertBoard(vo);
+//		boardService.insertBoard(vo);
 
 		//update
 //		System.out.println("업데이트 전");
@@ -61,7 +61,7 @@ public class BoardServiceClient {
 	      }
 	      
         //삭제
-//		vo.setSeq(1);
+//		vo.setSeq(4);
 //		int seq = 0;
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("삭제할 글 번호 입력: ");

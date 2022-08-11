@@ -3,7 +3,17 @@
 ## 목차
 
 - # 목차
-
+	- [용어](#용어)
+	- [수행 순서](#수행-순서)
+	- [결합도](#결합도)
+	- [빈](#빈)
+	- [의존 주입](#의존-주입)
+	- [어노테이션](#Annotation)
+	- [롬복](#lobok)
+	- [계층](#계층)
+	- [DB세팅](#데이터베이스-연결)
+	- [의존주입 참고 자료](#참고-자료)
+	- [AOP 참고 사이트](#참고-사이트)
 	
 ## 용어
 
@@ -411,6 +421,26 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 	</aop:config>
 ```
 
+### 동작 시점
+
+>
+<!-- 실행 이전에 -->
+<!-- <aop:aspect ref="AfterThrowingAdvice"> -->
+<!-- <aop:before method="before()" pointcut-ref="allPointcut"/> -->
+
+<!-- 리턴이 일어난 후에  -->
+<!-- <aop:after-returning method="afterLog()" pointcut-ref="getPointcut"/> -->
+
+<!-- 예외처리가 일어난 후에 -->
+<!-- <aop:after-throwing method="exceptionLog" pointcut-ref="allPointcut"/> -->
+<!-- 		</aop:aspect> -->
+
+<!-- 실행 이후에 -->
+<!-- <aop:aspect ref="AfterAdvice"> -->
+<!-- <aop:after method="finallyLog" pointcut-ref="allPointcut"/> -->
+<!-- </aop:aspect> -->
+```
+
 >@Before
  메소드 실행 전 기능 수행.
 @After
@@ -426,3 +456,10 @@ public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) 
 ### 참고 사이트
 * [Spring AOP weaving, proxy](https://tram-devlog.tistory.com/entry/Spring-AOP-weaving-proxy)
 ---
+
+
+
+### JoinPoint
+	- getSiqnature()
+	- getTarget()
+	- getArgs()
