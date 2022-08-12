@@ -16,7 +16,7 @@ public class BoardDAO {
 	private Statement stmt = null;
 	private ResultSet rs = null;
 	BoardVO vo = new BoardVO();
-
+	
 	private final String BOARD_INSERT = "INSERT INTO board(seq,title,writer,content) "
 			+ "VALUES((SELECT nvl(max(seq),0)+1 FROM board),?,?,?)";
 	private final String BOARD_UPDATE = "update board set title=?, writer=?, content=? where seq=?";
@@ -24,6 +24,8 @@ public class BoardDAO {
 	private final String BOARD_LIST = "select * from board order by seq desc";
 	private final String BOARD_DELETE = "delete from board where seq=?";
 	private final String BOARD_CNT = "update board set cnt = cnt+1 where seq=?";
+
+	
 	
 	public void boardCnt(BoardVO vo) {
 		System.out.println("===> board cnt");

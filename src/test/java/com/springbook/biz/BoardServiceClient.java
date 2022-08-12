@@ -54,14 +54,26 @@ public class BoardServiceClient {
 //		boardService.updateBoard(vo);
 //		System.out.println("업데이트됨?");
 		
+		 //조회 + 카운트 
+		vo.setSeq(1);
+
+//		int seq = 0;
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("조회할 글 번호 입력: ");
+//		seq = sc.nextInt();
+//		vo.setSeq(seq);
+	    BoardVO vo2 = boardService.getBoard(vo);
+	    System.out.println("상세 조회  : " + vo.getSeq() + "번");
+	    System.out.println("내용  : " + vo2);
+		
 		//전체조회
 		List<BoardVO> list = boardService.getBoardList();
 	      for(BoardVO list2 : list) {
-	         System.out.println(list2.toString());
+	         System.out.println(list2);
 	      }
 	      
         //삭제
-//		vo.setSeq(4);
+//		vo.setSeq(3);
 //		int seq = 0;
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("삭제할 글 번호 입력: ");
@@ -70,16 +82,7 @@ public class BoardServiceClient {
 //	    boardService.deleteBoard(vo);
 //	    System.out.println("삭제되었냐");
 	      
-	    //조회 + 카운트 
-//	    vo.setSeq(2);
-
-//		int seq = 0;
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("조회할 글 번호 입력: ");
-//		seq = sc.nextInt();
-//		vo.setSeq(seq);
-//	    boardService.getBoard(vo);
-//	    System.out.println("상세 조회  : " + vo.getSeq() + "번");
+	   
 	    
 		container.close();
 	}
